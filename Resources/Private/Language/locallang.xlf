@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:plausible_analytics/Resources/Private/Language/locallang.xlf" product-name="plausible_analytics">
+    <header />
+    <body>
+      <trans-unit id="url" resname="url">
+        <source>Plausible URL</source>
+      </trans-unit>
+      <trans-unit id="urlDescription" resname="urlDescription">
+        <source>URL of the Plausible instance to use (without the path). When using plausible.io put "https://plausible.io" in here. It is required that the "Entry Point" in the "General" tab is set to a URL.</source>
+      </trans-unit>
+      <trans-unit id="domain" resname="domain">
+        <source>Domain name for Plausible</source>
+      </trans-unit>
+      <trans-unit id="domainDescription" resname="domainDescription">
+        <source>Domain of the site to pass on to Plausible.  If this is left empty, we try to use the value of the "Entry Point" in the "General" tap. If this fails, e.g. because it is not a full URL, then the Plausible script will not get added.</source>
+      </trans-unit>
+      <trans-unit id="tab" resname="tab">
+        <source>Plausible Analytics</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,35 @@
+{
+  "name": "mmk2410/plausible-analytics",
+  "type": "typo3-cms-extension",
+  "description": "Integrate Plausible analytics into TYPO3",
+  "authors": [
+    {
+      "name": "Marcel Kapfer",
+      "email": "opensource@mmk2410.org",
+      "role": "Developer",
+      "homepage": "https://mmk2410.org"
+    }
+  ],
+  "license": "GPL-2.0-or-later",
+  "keywords": ["typo3", "plausible", "analytics"],
+  "support": {
+    "email": "opensource@mmk2410.org",
+    "issues": "https://gitlab.com/mmk2410/uulmhack_typo3/-/issues"
+  },
+  "autoload": {
+    "psr-4": {
+      "MMK2410\\PlausibleAnalytics\\": "Classes/"
+    }
+  },
+  "require": {
+    "typo3/cms-core": "^10.4"
+  },
+  "replace": {
+    "typo3-ter/plausible-analytics": "self.version"
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "plausible_analytics"
+    }
+  }
+}
