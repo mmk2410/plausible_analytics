@@ -22,10 +22,14 @@ class PageRendererPreProcess
 
     public function addLibrary(): void
     {
+        if (!isset($this->tsfe)) {
+            return;
+        }
+
         $domain = $this->getDomain();
         $plausible = $this->getPlausibleURL();
 
-        if (isset($domain) && isset($plausible)) {
+        if (isset($domain) && isset($plausible) && !$this->tsfe->isBackendUserLoggedIn()) {
             GeneralUtility::makeInstance(AssetCollector::class)
                 ->addJavaScript(
                     'plausible_analytics',
