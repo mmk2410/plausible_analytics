@@ -14,7 +14,7 @@
   "keywords": ["typo3", "plausible", "analytics"],
   "support": {
     "email": "opensource@mmk2410.org",
-    "issues": "https://gitlab.com/mmk2410/uulmhack_typo3/-/issues"
+    "issues": "https://gitlab.com/mmk2410/plausible_analytics/-/issues"
   },
   "autoload": {
     "psr-4": {
