@@ -16,7 +16,7 @@ class PageRendererPreProcess
     public function __construct(AssetCollector $assetCollector = null)
     {
         $this->assetCollector = $assetCollector ?? GeneralUtility::makeInstance(AssetCollector::class);
-        $this->tsfe = $GLOBALS['TSFE'];
+        $this->tsfe = $GLOBALS['TSFE'] ?? null;
     }
 
     public function addLibrary(): void
