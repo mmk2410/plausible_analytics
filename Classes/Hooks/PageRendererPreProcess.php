@@ -29,16 +29,15 @@ class PageRendererPreProcess
         $plausible = $this->getPlausibleURL();
 
         if (isset($domain) && isset($plausible) && !$this->tsfe->isBackendUserLoggedIn()) {
-            GeneralUtility::makeInstance(AssetCollector::class)
-                ->addJavaScript(
-                    'plausible_analytics',
-                    $plausible . '/js/plausible.js',
-                    [
-                        'async' => 'async',
-                        'defer' => 'defer',
-                        'data-domain' => $domain
-                    ],
-                );
+            $this->assetCollector->addJavaScript(
+                'plausible_analytics',
+                $plausible . '/js/plausible.js',
+                [
+                    'async' => 'async',
+                    'defer' => 'defer',
+                    'data-domain' => $domain
+                ],
+            );
         }
     }
 
