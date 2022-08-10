@@ -4,7 +4,6 @@ namespace MMK2410\PlausibleAnalytics\Hooks;
 
 use TYPO3\CMS\Core\Page\AssetCollector;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 
 class PageRendererPreProcess
 {
