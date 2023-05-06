@@ -4,6 +4,7 @@ namespace MMK2410\PlausibleAnalytics\Hooks;
 
 use TYPO3\CMS\Core\Page\AssetCollector;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Context\Context;
 
 class PageRendererPreProcess
 {
@@ -13,22 +14,30 @@ class PageRendererPreProcess
     /** @var \TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController */
     private $tsfe;
 
+    /** @var Context */
+    private $context;
+
     public function __construct(AssetCollector $assetCollector = null)
     {
         $this->assetCollector = $assetCollector ?? GeneralUtility::makeInstance(AssetCollector::class);
         $this->tsfe = $GLOBALS['TSFE'] ?? null;
+        $this->context = GeneralUtility::makeInstance(Context::class);
     }
 
     public function addLibrary(): void
     {
-        if (!isset($this->tsfe)) {
+        if (!isset($this->tsfe)|| !isset($this->context)) {
             return;
         }
 
         $domain = $this->getDomain();
         $plausible = $this->getPlausibleURL();
 
-        if (isset($domain) && isset($plausible) && !$this->tsfe->isBackendUserLoggedIn()) {
+        if (
+            isset($domain) &&
+            isset($plausible) &&
+            !$this->context->getPropertyFromAspect('backend.user', 'isLoggedIn')
+        ) {
             $this->assetCollector->addJavaScript(
                 'plausible_analytics',
                 $plausible . '/js/plausible.js',
